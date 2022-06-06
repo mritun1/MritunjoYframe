@@ -1,0 +1,12 @@
+.env
+app/controllers/custom/
+app/controllers/pagecontroller.php
+assets/functions/
+assets/icons/
+assets/view/auth/
+assets/layout/
+assets/pages/
+assets/view/home.php
+assets/view/sitemap.xml
+index.php
+test.php
