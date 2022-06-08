@@ -94,7 +94,8 @@ class APP_CRUD_CRUD{
             //$message['sql'] = $sql;
             //$message['err'] = mysqli_error($conn);
         }
-        //echo json_encode($message);
+        
+        //return $sql;
         return $lastID;
     }
     //@example : InsertUpdateData($_REQUEST,'tablename',$conn,$upload_folder);

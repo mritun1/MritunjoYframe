@@ -4,7 +4,7 @@ class APP_AUTH_USERS{
     //FOR REGISTERING USER
     //SEND REQUEST
     //password, password1, email, first_name, last_name
-    public static function register_users(){
+    public static function register_users($arr_get = null){
         $message['code'] = 0;
         if($_POST['password'] == $_POST['password1']){
 
@@ -24,12 +24,16 @@ class APP_AUTH_USERS{
                         //START INSERTING HERE
                         $pass = password_hash($_POST['password'], PASSWORD_BCRYPT);
 
-                        $arr = array(
-                            "fname" => htmlentities($_POST['first_name']),
-                            "lname" => htmlentities($_POST['last_name']),
-                            "email" =>  $email,
-                            "password" =>  $pass
-                        );
+                        if($arr_get){
+                            $arr = $arr_get;
+                        }else{
+                            $arr = array(
+                                "fname" => htmlentities($_POST['first_name']),
+                                "lname" => htmlentities($_POST['last_name']),
+                                "email" =>  $email,
+                                "password" =>  $pass
+                            );
+                        }
                         
                         $db = new APP_CRUD_CRUD();
                         APP_CRUD_CRUD::InsertUpdateData($arr,'users',$db->db(),"");

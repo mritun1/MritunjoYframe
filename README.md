@@ -261,6 +261,17 @@ if(isset($_POST['registration']) && $_POST['registration'] == 'access'){
     echo APP_AUTH_USERS::register_users();
 
 }
+
+//ALSO YOUR CAN SEND ADDITIONAL DATA HERE
+$arr = array(
+        "fname" => htmlentities($_POST['first_name']),
+        "email" =>  $_POST['email'],
+        "password" =>  $_POST['password'],
+        "phone_number" =>  $_POST['phone_number'],
+        "gender" =>  $_POST['gender']
+    );
+
+    echo APP_AUTH_USERS::register_users($arr);
 ```
 
 18. GET SINGE ROW FROM DATABASE
