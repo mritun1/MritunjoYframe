@@ -7,7 +7,7 @@ if(isset($_POST['registration']) && $_POST['registration'] == 'access'){
     // $arr = array(
     //     "fname" => htmlentities($_POST['first_name']),
     //     "email" =>  $_POST['email'],
-    //     "password" =>  $_POST['password'],
+    //     "password" =>  password_hash($_POST['password'], PASSWORD_BCRYPT),
     //     "phone_number" =>  $_POST['phone_number'],
     //     "gender" =>  $_POST['gender']
     // );
@@ -17,7 +17,7 @@ if(isset($_POST['registration']) && $_POST['registration'] == 'access'){
 }
 
 if(isset($_POST['login']) && $_POST['login'] == 'access'){
-    
+    //SEND POST REQUEST -> email, password
     echo APP_AUTH_USERS::login_users();
 
 }

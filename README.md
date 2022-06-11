@@ -266,7 +266,7 @@ if(isset($_POST['registration']) && $_POST['registration'] == 'access'){
 $arr = array(
         "fname" => htmlentities($_POST['first_name']),
         "email" =>  $_POST['email'],
-        "password" =>  $_POST['password'],
+        "password" =>  password_hash($_POST['password'], PASSWORD_BCRYPT),
         "phone_number" =>  $_POST['phone_number'],
         "gender" =>  $_POST['gender']
     );
@@ -431,4 +431,50 @@ $("#submitForm").click(function (event) {
       }
     });
   });
+```
+
+31. ADD TO CARD - FUNCTIONS
+    <br/>
+    This is the php for buttons
+
+```bash
+$addCartBtn = '<button addtocart="medical" act="add" productid="'.$val['id'].'" days="30" changeClick="add" >Add Cart</button>';
+if(APP_INTI_ADDCART::AddToCartCheck('medical',$val['id']) == true){
+    $addCartBtn = '<button addtocart="medical" act="minus" productid="'.$val['id'].'" days="30" changeClick="minus" >Remove</button>';
+}
+```
+
+After that add this to your jQuery
+
+```bash
+$('*[changeClick]').click(function(event){
+  let cookiename = $(this).attr("addtocart");
+  let cookieval = $(this).attr("productid");
+  let days = $(this).attr("days");
+  let act = $(this).attr("act");
+  AddToCartCookies(cookiename,cookieval,days,act);
+  let cahngeClick = $(this).attr("changeClick");
+  if(cahngeClick == "add"){
+      //EDIT YOUR CODE HERE
+      $(this).attr("act","minus");
+      $(this).attr("changeClick","minus");
+      $(this).removeClass("text-success");
+      $(this).addClass("text-danger");
+      $(this).html(`<i class="fa-solid fa-minus"></i> Remove`);
+  }else{
+      //EDIT YOUR CODE HERE
+      $(this).attr("act","add");
+      $(this).attr("changeClick","add");
+      $(this).removeClass("text-danger");
+      $(this).addClass("text-success");
+      $(this).html(`<i class="fa-solid fa-plus"></i> Add Cart`);
+  }
+  $('.cart_noti').text(AddToCartCount(cookiename));
+});
+```
+
+Your Add to cart notification have this .cart_noti class
+
+```bash
+<span class="cart_noti"><?php echo APP_INTI_ADDCART::AddToCartCount("medical"); ?></span>
 ```
