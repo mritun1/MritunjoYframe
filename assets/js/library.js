@@ -286,20 +286,20 @@ function ajaxFunc(method, action, data, func) {
 // --------------------------------------------------------------
 //   ADD TO CART - START
 // --------------------------------------------------------------
-function AddToCartCookies(cookiename, cookieval, days, act) {
+function AddToCartCookies(cookiename, cookieval, days, act, qty) {
   let carts;
   let cookieData = getCookie(cookiename);
   if (act == "add") {
     //ADDING
     if (cookieData) {
-      carts = cookieData + "," + cookieval;
+      carts = cookieData + "," + cookieval + "-" + qty;
     } else {
-      carts = cookieval;
+      carts = cookieval + "-" + qty;
     }
   } else {
     //MINUS
-    carts = cookieData.replace("," + cookieval, "");
-    carts = carts.replace(cookieval, "");
+    carts = cookieData.replace("," + cookieval + "-" + qty, "");
+    carts = carts.replace(cookieval + "-" + qty, "");
   }
   // Set a cookie
   setCookie(cookiename, carts, days);
