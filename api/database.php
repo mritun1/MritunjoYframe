@@ -245,87 +245,87 @@ echo '<br/>';
 //     VALUES('".$val['student_name']."','".$val['prescription']."','".$val['rollno']."','".$val['branch']."')");
 // }
 
-$students_array = array(
-    array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Punit Sharma',
-        'rollno' => '190310014028',
-        'branch' => 'CE',
-        'semester' => '5th',
-        'age' => '21'
-    ),
-    array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Ankita Gupta',
-        'rollno' => '180410024019',
-        'branch' => 'BCA',
-        'semester' => '3rd',
-        'age' => '22'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Aniket Yadav',
-        'rollno' => '200410012040',
-        'branch' => 'BCA',
-        'semester' => '1st',
-        'age' => '21'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Ankita Gupta',
-        'rollno' => '180410052020',
-        'branch' => 'ME',
-        'semester' => '5th',
-        'age' => '23'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Dipankar Baishya',
-        'rollno' => '190410034036',
-        'branch' => 'BBA',
-        'semester' => '3rd',
-        'age' => '23'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Sourav Kumar',
-        'rollno' => '200510040041',
-        'branch' => 'ECE',
-        'semester' => '1st',
-        'age' => '20'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Pradyut Thapa',
-        'rollno' => '200610052029',
-        'branch' => 'EE',
-        'semester' => '5th',
-        'age' => '23'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => '',
-        'rollno' => '180210036010',
-        'branch' => 'CE',
-        'semester' => '5th',
-        'age' => '23'
-    ),array(
-        'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
-        'student_name' => 'Ethan Deori',
-        'rollno' => '210210054011',
-        'branch' => 'CSE',
-        'semester' => '1st',
-        'age' => '20'
-    )
-);
-$sql = "CREATE TABLE IF NOT EXISTS students (
-    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    img VARCHAR(255),
-    student_name VARCHAR(255),
-    rollno VARCHAR(255),
-    branch VARCHAR(255),
-    semester VARCHAR(255),
-    age VARCHAR(255)
-    )";
-if ($db->db()->query($sql) === TRUE) {
-    echo "Student Table created successfully";
-} else {
-    echo "Error creating table: " . $db->db()->error;
-}
+// $students_array = array(
+//     array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Punit Sharma',
+//         'rollno' => '190310014028',
+//         'branch' => 'CE',
+//         'semester' => '5th',
+//         'age' => '21'
+//     ),
+//     array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Ankita Gupta',
+//         'rollno' => '180410024019',
+//         'branch' => 'BCA',
+//         'semester' => '3rd',
+//         'age' => '22'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Aniket Yadav',
+//         'rollno' => '200410012040',
+//         'branch' => 'BCA',
+//         'semester' => '1st',
+//         'age' => '21'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Ankita Gupta',
+//         'rollno' => '180410052020',
+//         'branch' => 'ME',
+//         'semester' => '5th',
+//         'age' => '23'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Dipankar Baishya',
+//         'rollno' => '190410034036',
+//         'branch' => 'BBA',
+//         'semester' => '3rd',
+//         'age' => '23'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Sourav Kumar',
+//         'rollno' => '200510040041',
+//         'branch' => 'ECE',
+//         'semester' => '1st',
+//         'age' => '20'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Pradyut Thapa',
+//         'rollno' => '200610052029',
+//         'branch' => 'EE',
+//         'semester' => '5th',
+//         'age' => '23'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => '',
+//         'rollno' => '180210036010',
+//         'branch' => 'CE',
+//         'semester' => '5th',
+//         'age' => '23'
+//     ),array(
+//         'img' => 'https://thumbs.dreamstime.com/b/male-graduate-student-profile-icon-gown-cap-flat-style-vector-eps-male-graduate-student-profile-icon-gown-cap-183202486.jpg',
+//         'student_name' => 'Ethan Deori',
+//         'rollno' => '210210054011',
+//         'branch' => 'CSE',
+//         'semester' => '1st',
+//         'age' => '20'
+//     )
+// );
+// $sql = "CREATE TABLE IF NOT EXISTS students (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     img VARCHAR(255),
+//     student_name VARCHAR(255),
+//     rollno VARCHAR(255),
+//     branch VARCHAR(255),
+//     semester VARCHAR(255),
+//     age VARCHAR(255)
+//     )";
+// if ($db->db()->query($sql) === TRUE) {
+//     echo "Student Table created successfully";
+// } else {
+//     echo "Error creating table: " . $db->db()->error;
+// }
 // foreach($students_array as $val){
 //     $db->db()->query("INSERT INTO students(img,student_name,rollno,branch,semester,age) 
 //     VALUES('".$val['img']."','".$val['student_name']."','".$val['rollno']."','".$val['branch']."','".$val['semester']."','".$val['age']."')");

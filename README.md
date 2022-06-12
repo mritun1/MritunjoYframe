@@ -414,6 +414,8 @@ if(APP_CRUD_DB::sql_query("DELETE FROM docs WHERE id='$id' LIMIT 1")){
 ```
 
 30. SEND AJAX REQUEST
+    <br/>
+    JQUREY
 
 ```bash
 # jQuery Ajax
@@ -431,6 +433,21 @@ $("#submitForm").click(function (event) {
       }
     });
   });
+```
+
+PURE JAVASCRIPT
+
+```bash
+function loadMyCart(){
+  //ADD ADDITIONAL FORM HERE
+  let data = "getAddToCart=get";
+  let method = "post";
+  let action = "/func/addtocart";
+  ajaxFuncJS(method, action, data, function (mgs) {
+    //ADD HERE GETTING RESPONSE
+    console.log(mgs);
+  }
+}
 ```
 
 31. ADD TO CARD - FUNCTIONS
@@ -481,4 +498,116 @@ Your Add to cart notification have this .cart_noti class
 
 ```bash
 <button go_href="mycarts" >Click Here</button>
+```
+
+33. My Cart Page
+    <br/>
+    First carte addtocart.php function
+    And add this and Edit according to your database
+
+```bash
+<?php
+if(isset($_POST['getAddToCart'])){
+    APP_INTI_ADDCART::cartLists("medical",function($id,$qty,$query){
+        //WHEN ADD TO CART EXISTS
+        $data = "SELECT * FROM table WHERE id='$id' LIMIT 1";
+        $getAll = json_decode(APP_CRUD_DB::getAll($data),true);
+        $return = "";
+        if($query == 'img'){
+            //EDIT HERE
+            $return = $getAll[0]['img'];
+        }
+        if($query == 'name'){
+            //EDIT HERE
+            $return = $getAll[0]['name'];
+        }
+        if($query == 'price'){
+            //EDIT HERE
+            $return = number_format($getAll[0]['price'] * $qty, 2);
+        }
+        return $return;
+    });
+}
+?>
+```
+
+Now, go to your mycart page and follow this
+For showing your cart lists
+
+```bash
+<div id="getCartLists"></div>
+<span id="total_price">0</span>
+```
+
+And add this JavaScript function and edit according to your design
+
+```bash
+function loadMyCart(){
+    //ADD ADDITIONAL FORM HERE
+    let data = "getAddToCart=get";
+    let method = "post";
+    let action = "/func/addtocart";
+    ajaxFuncJS(method, action, data, function (mgs) {
+    //ADD HERE GETTING RESPONSE
+    //console.log(mgs);
+    let content = '';
+    let total_price = 0;
+    if (mgs.code == 1) {
+        //CODES HERE
+        if(mgs.data){
+            let data = mgs.data;
+            data.forEach(function(list){
+                content += `
+                            <tr>
+                            <td>
+                                <img src="`+list[`img`]+`" style="width: 80px; height: auto" />
+                            </td>
+                            <td>`+list[`name`]+`</td>
+                            <td>
+                                <input
+                                type="number"
+                                value="`+list[`qty`]+`"
+                                style="
+                                    width: 50px;
+                                    border: 1px solid gray;
+                                    padding: 5px;
+                                    border-radius: 6px;
+                                "
+                                class="eachCart"
+                                cart="medical"
+                                productid="`+list[`id`]+`"
+                                act="add"
+                                days="30"
+                                onchange="chagneAddToCart(this)"
+                                />
+                            </td>
+                            <td >
+                                <i class="fa-solid fa-indian-rupee-sign"></i> `+list[`price`]+`
+                            </td>
+                            <td class="w-10 text-center">
+                                <button
+                                onclick="removeAddToCart(this)"
+                                removeAddToCart="medical"
+                                productid="`+list[`id`]+`"
+                                qty="`+list[`qty`]+`"
+                                act="minus"
+                                days="30"
+                                >
+                                <i class="fa-solid fa-xmark"></i>
+                                </button>
+                            </td>
+                            </tr>
+                            `
+                            ;
+
+            });
+        }
+        total_price = mgs.total_price;
+    }
+    document.getElementById("getCartLists").innerHTML = content;
+    document.getElementById("total_price").innerHTML = total_price.toFixed(2);;
+    document.getElementsByClassName("cart_noti")[0].innerHTML = AddToCartCount("medical");
+    });
+}
+loadMyCart();
 ```

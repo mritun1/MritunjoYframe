@@ -73,6 +73,9 @@ class PAGECONTROLLER{
                 }else
                 if(CONFIG::getRouteRequest(2) == 'delete'){
                     CONFIG::include_func('delete',function(){ self::page404(); });
+                }else
+                if(CONFIG::getRouteRequest(2) == 'addtocart'){
+                    CONFIG::include_func('addtocart',function(){ self::page404(); });
                 }
                 else{
                     self::page404();

@@ -266,6 +266,10 @@ function htmlEntities(str) {
     .replace(/"/g, "&quot;");
 }
 
+// --------------------------------------------------------------
+//   AJAX FUNCTION - START
+// --------------------------------------------------------------
+//JQUERY
 function ajaxFunc(method, action, data, func) {
   $.ajax({
     url: action,
@@ -283,7 +287,22 @@ function ajaxFunc(method, action, data, func) {
     },
   });
 }
-
+//PURE JAVASCRIPT
+function ajaxFuncJS(method, action, data, func) {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function () {
+    if (this.readyState == 4 && this.status == 200) {
+      let data = JSON.parse(this.responseText);
+      return func(data);
+    }
+  };
+  xhttp.open(method, action, true);
+  xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  xhttp.send(data);
+}
+// --------------------------------------------------------------
+//   AJAX FUNCTION - END
+// --------------------------------------------------------------
 // --------------------------------------------------------------
 //   ADD TO CART - START
 // --------------------------------------------------------------
@@ -335,6 +354,31 @@ function AddToCartCount(cookieName) {
     cart = 0;
   }
   return cart;
+}
+function removeAddToCart(e) {
+  let cookiename = e.getAttribute("removeAddToCart");
+  let cookieval = e.getAttribute("productid");
+  let days = e.getAttribute("days");
+  let act = e.getAttribute("act");
+  let qty = e.getAttribute("qty");
+  AddToCartCookies(cookiename, cookieval, days, act, qty);
+  loadMyCart();
+}
+function chagneAddToCart(e) {
+  let cart = e.getAttribute("cart");
+  let days = e.getAttribute("days");
+  let act = e.getAttribute("act");
+  setCookie(cart, "", days);
+  let eachCart = document.getElementsByClassName("eachCart");
+  for (let i = 0; i < eachCart.length; i++) {
+    let id = eachCart[i].getAttribute("productid");
+    let qty = eachCart[i].value;
+    //Replace the add to cart with present one
+    if (qty > 0) {
+      AddToCartCookies(cart, id, days, act, qty);
+    }
+  }
+  loadMyCart();
 }
 // --------------------------------------------------------------
 //   ADD TO CART - END
