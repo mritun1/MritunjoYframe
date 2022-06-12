@@ -611,3 +611,48 @@ function loadMyCart(){
 }
 loadMyCart();
 ```
+
+FOR SUBMITTING WHILE ON CLICK
+
+```bash
+<button type="button" onclick="submitPayCart()" >Pay now</button>
+```
+
+JAVASCRIPT
+
+```bash
+function submitPayCart(){
+  let data1 = "insertToOrder=get";
+  let method1 = "post";
+  let action1 = "/func/addtocart";
+  ajaxFuncJS(method1, action1, data1, function (mgs) {
+    //ADD HERE GETTING RESPONSE
+    if (mgs.code == 1) {
+      window.location.href = "/orders";
+    }
+  });
+}
+```
+
+on func/addtocart
+
+```bash
+if(isset($_POST['insertToOrder'])){
+    APP_INTI_ADDCART::cartListsSql("medical",function($id,$qty){
+        $data = "SELECT * FROM medicine WHERE id='$id' LIMIT 1";
+        $getAll = json_decode(APP_CRUD_DB::getAll($data),true);
+        //INSERT INTO ORDER
+        $arr = array(
+            "img" => $getAll[0]['img'],
+            "product_name" => $getAll[0]['name'],
+            "qty" =>  $qty,
+            "price" => number_format($getAll[0]['price'] * $qty,2),
+            "status" =>  '0',
+            "day" =>  time()
+        );
+
+        APP_CRUD_CRUD::InsertUpdateData($arr,'orders',APP_CRUD_DB::conn(),"");
+
+    });
+}
+```

@@ -330,4 +330,19 @@ echo '<br/>';
 //     $db->db()->query("INSERT INTO students(img,student_name,rollno,branch,semester,age) 
 //     VALUES('".$val['img']."','".$val['student_name']."','".$val['rollno']."','".$val['branch']."','".$val['semester']."','".$val['age']."')");
 // }
+
+// $sql = "CREATE TABLE IF NOT EXISTS orders(
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     img VARCHAR(255),
+//     product_name VARCHAR(255),
+//     qty INT(255),
+//     price VARCHAR(255),
+//     status INT(255),
+//     day VARCHAR(255)
+//     )";
+// if ($db->db()->query($sql) === TRUE) {
+//     echo "Orders Table created successfully";
+// } else {
+//     echo "Error creating table: " . $db->db()->error;
+// }
 ?>

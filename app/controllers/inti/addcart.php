@@ -56,5 +56,25 @@ class APP_INTI_ADDCART{
         echo json_encode($return);
     }
 
+    public static function cartListsSql($cookieName,$func){
+        $data = $_COOKIE[$cookieName];
+        if($data){
+            $dataExp = explode(",",$data);
+            foreach($dataExp as $val){
+                if($val != ""){
+                    $valExp = explode("-",$val);
+                    $id = $valExp[0];
+                    $qty = $valExp[1];
+
+                    $func($id,$qty);
+                }
+            }
+        }
+        $return['code'] = 1;
+        unset($_COOKIE[$cookieName]);
+        setcookie($cookieName, '', time() - 3600, '/');
+        echo json_encode($return);
+    }
+
 }
 ?>
