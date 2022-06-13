@@ -345,4 +345,17 @@ echo '<br/>';
 // } else {
 //     echo "Error creating table: " . $db->db()->error;
 // }
+
+// $sql = "CREATE TABLE IF NOT EXISTS contact(
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     name VARCHAR(255),
+//     email VARCHAR(255),
+//     message TEXT,
+//     day VARCHAR(255)
+//     )";
+// if ($db->db()->query($sql) === TRUE) {
+//     echo "Contact Table created successfully";
+// } else {
+//     echo "Error creating table: " . $db->db()->error;
+// }
 ?>
