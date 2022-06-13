@@ -450,6 +450,26 @@ function loadMyCart(){
 }
 ```
 
+JQUERY + JS
+
+```bash
+$('#contactForm').submit(function(event){
+    event.preventDefault();
+    var data = $(this).serialize();
+    data = data + "&submitContact=submit";
+    let method = $(this).attr("method");
+    let action = $(this).attr("action");
+    ajaxFuncJS(method, action, data, function (mgs) {
+    //submitForm(this,data,event,function(mgs){
+        if(mgs.code == 1){
+            //ADD YOUR PROGRAM HERE ON SUCCESS
+            console.log(mgs);
+            $("#contactsubmited").modal("show");
+        }
+    });
+});
+```
+
 31. ADD TO CARD - FUNCTIONS
     <br/>
     This is the php for buttons
@@ -656,3 +676,52 @@ if(isset($_POST['insertToOrder'])){
     });
 }
 ```
+
+34. CONTACT FORM
+    <br/>
+    FORM EXAMPLE
+
+```bash
+<form id="contactForm" action="/func/contact" method="post" enctype="multipart/form-data" >
+
+//name,email,message
+```
+
+    ADD THIS FOR SUBMITTING FORM
+
+```bash
+$('#contactForm').submit(function(event){
+    event.preventDefault();
+    var data = $(this).serialize();
+    data = data + "&submitContact=submit";
+    let method = $(this).attr("method");
+    let action = $(this).attr("action");
+    ajaxFuncJS(method, action, data, function (mgs) {
+    //submitForm(this,data,event,function(mgs){
+        if(mgs.code == 1){
+            //ADD YOUR PROGRAM HERE ON SUCCESS
+            console.log(mgs);
+            $("#contactsubmited").modal("show");
+        }
+    });
+});
+```
+
+CREATE DATABASE
+
+```bash
+$sql = "CREATE TABLE IF NOT EXISTS contact(
+    id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    email VARCHAR(255),
+    message TEXT,
+    day VARCHAR(255)
+    )";
+if ($db->db()->query($sql) === TRUE) {
+    echo "Contact Table created successfully";
+} else {
+    echo "Error creating table: " . $db->db()->error;
+}
+```
+
+We need function file .. function/contact.php
