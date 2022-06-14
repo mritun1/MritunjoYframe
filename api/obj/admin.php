@@ -58,10 +58,10 @@ class ADMIN{
     public static function Access(){
 
         $for = filter_input(INPUT_POST, 'for', FILTER_SANITIZE_STRING);
-
         if($for == 'Adminlogin'){
             $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
             $password = strip_tags($_POST['password']);
+            //echo $username .' '.$password;
             echo json_encode(APP_AUTH_ADMIN::login($username,$password));
         }
 

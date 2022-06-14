@@ -358,4 +358,27 @@ echo '<br/>';
 // } else {
 //     echo "Error creating table: " . $db->db()->error;
 // }
+
+$data = "SELECT * FROM contact ORDER BY id DESC";
+$getAll = json_decode(APP_CRUD_DB::getAll($data),true);
+//$password = $getAll[0]['row_name'];
+if($getAll){
+    foreach($getAll as $key){
+        echo $key['name'] . '<br/>';
+    }
+    
+}
+
+// $sql = "CREATE TABLE IF NOT EXISTS appointment(
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     rollno VARCHAR(255),
+//     branch VARCHAR(255),
+//     message TEXT,
+//     day VARCHAR(255)
+//     )";
+// if ($db->db()->query($sql) === TRUE) {
+//     echo "Appointment Table created successfully";
+// } else {
+//     echo "Error creating table: " . $db->db()->error;
+// }
 ?>

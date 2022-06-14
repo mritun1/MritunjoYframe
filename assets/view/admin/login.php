@@ -195,7 +195,9 @@ $(document).ready(function(){
       contentType: false,
       success: function (data)
       {
+        console.log(data);
         let mgs = JSON.parse(JSON.stringify(data));
+        console.log(mgs);
         if(mgs.code == 1){
           $(location).prop('href', '/admin-dash');
         }else{

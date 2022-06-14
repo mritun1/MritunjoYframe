@@ -677,7 +677,25 @@ if(isset($_POST['insertToOrder'])){
 }
 ```
 
-34. CONTACT FORM
+34. Buy button
+
+```bash
+<button buynow="medical" productid="'.$val['id'].'" qty="1" days="30" >Buy</button>
+```
+
+```bash
+//BUY BUTTON
+$('*[buynow]').click(function(event){
+    let cookiename = $(this).attr("buynow");
+    let cookieval = $(this).attr("productid");
+    let days = $(this).attr("days");
+    let qty = $(this).attr("qty");
+    AddToCartCookies(cookiename,cookieval,days,'add',qty);
+    window.location.href = 'mycarts';
+});
+```
+
+35. CONTACT FORM
     <br/>
     FORM EXAMPLE
 
