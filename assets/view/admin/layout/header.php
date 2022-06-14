@@ -67,6 +67,7 @@
 
         <li><a href="/admin-appointment"><i class="fa-solid fa-handshake"></i> Appointment</a></a></li>
         <li><a href="/admin-contact"><i class="fa-solid fa-address-book"></i> Contact</a></a></li>
+        <li><a href="/admin-orders"><i class="fa-solid fa-list"></i> Orders</a></a></li>
 
         <!-- <li><a href="#section3">Gender</a></li> -->
         <li><a href="javascript:void(0)"  class="text-danger AdminLogout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
