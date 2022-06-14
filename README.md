@@ -743,3 +743,7 @@ if ($db->db()->query($sql) === TRUE) {
 ```
 
 We need function file .. function/contact.php
+
+---
+
+Gimit Medical,
