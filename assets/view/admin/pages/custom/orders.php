@@ -22,8 +22,12 @@
             if($getAll){
               if(count($getAll) > 0){
                   foreach($getAll as $val){
+
+                    $where = "id='".$val['user_id']."'";
+                    $name = APP_CRUD_DB::getOne('fname','users',$where) . ' ' . APP_CRUD_DB::getOne('lname','users',$where);
+
                       echo '<tr>
-                                <td>Username</td>
+                                <td>'.$name.'</td>
                               <td><img src="'.$val['img'].'" style="height:80px;width:auto;" /></td>
                               <td>'.$val['product_name'].'</td>
                               <td>'.$val['qty'].'</td>

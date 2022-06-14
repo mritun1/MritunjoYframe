@@ -338,7 +338,8 @@ echo '<br/>';
 //     qty INT(255),
 //     price VARCHAR(255),
 //     status INT(255),
-//     day VARCHAR(255)
+//     day VARCHAR(255),
+//     user_id VARCHAR(255)
 //     )";
 // if ($db->db()->query($sql) === TRUE) {
 //     echo "Orders Table created successfully";
