@@ -2,7 +2,7 @@
 app/controllers/custom/
 app/controllers/pagecontroller.php
 assets/functions/custom
-assets/icons/custom
+assets/icons/
 assets/view/auth/
 assets/view/layout/
 assets/view/pages/
