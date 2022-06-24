@@ -1,7 +1,7 @@
 <?php 
 class PAGECONTROLLER{
 
-    public static function home(){
+    public static function welcome(){
         $page_arr = array(
             'title' => 'MritunjoyFrame',
             'description' => 'MritunjoyFrame.'

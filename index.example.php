@@ -7,7 +7,7 @@ $page_exists = 0;
 //$actual_link = (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on' ? "https" : "http") . "://";
 // echo $_SERVER["REQUEST_URI"];
 
-CONFIG::route('','pagecontroller@home'); // Leave empty for Homepage
+CONFIG::route('','pagecontroller@welcome'); // Leave empty for Homepage
 
 //.... PAGES - START .....
 
