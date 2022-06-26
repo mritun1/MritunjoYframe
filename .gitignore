@@ -1,6 +1,7 @@
 .env
 app/controllers/custom/
 app/controllers/pagecontroller.php
+api/index.example.php
 assets/functions/custom
 assets/icons/
 assets/view/auth/

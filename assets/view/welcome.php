@@ -36,5 +36,5 @@
 </body>
 </html>
 
-<script src="/assets/js/style.js?v=1"></script>
+<!-- <script src="/assets/js/style.js?v=1"></script> -->
 <script src="/assets/js/library.js?v=6.6"></script>
