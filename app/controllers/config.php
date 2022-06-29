@@ -49,7 +49,7 @@ class CONFIG{
     }
 
     public static function include_func($file,$error){
-        $file = 'assets/functions/' . $file . '.php';
+        $file = 'assets/functions/' . str_replace(".","/", $file) . '.php';
         if(file_exists($file)){
             include $file;
         }else{

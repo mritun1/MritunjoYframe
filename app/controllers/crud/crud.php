@@ -150,6 +150,20 @@ class APP_CRUD_CRUD{
         }
     }
 
+    public static function deleteFunctionsAdmin($function){
+        if(APP_AUTH_ADMIN::authCheck() == true){
+            if(isset($_POST['forDeleting']) && $_POST['forDeleting'] == 'Delete'){
+                if($_POST["delete-confirm"]!= '' && $_POST['del-id']!=''){
+                    $function();
+                }else{
+                    $message['code'] = 0;
+                    $message['status'] = 'No details found';
+                    echo json_encode($message);
+                }
+            }
+        }
+    }
+
     
 }
 ?>

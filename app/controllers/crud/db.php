@@ -48,7 +48,7 @@ class APP_CRUD_DB{
     }
 
     //SEARCHING DATABASE
-    public static function searchData(string $list, string $table, string $query){
+    public static function searchData(string $list, string $table, string $query, string $query2 = null){
         $search = '';
         if($query != ""){
             $list_exp = explode(",",$list);
@@ -60,7 +60,7 @@ class APP_CRUD_DB{
                     $search .= $key." LIKE '%" .$query . "%' OR ";
                 }
             }
-            $sql_query = "SELECT * FROM $table WHERE $search";
+            $sql_query = "SELECT * FROM $table WHERE $search $query2";
             return self::getAll($sql_query);
         }
         //return $sql_query;

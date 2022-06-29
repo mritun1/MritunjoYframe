@@ -24,7 +24,7 @@ if(isset($_POST['login']) && $_POST['login'] == 'access'){
 
 if(isset($_GET['logout']) && $_GET['logout'] == 'success'){
     
-    APP_AUTH_USERS::user_logout("/login");
+    APP_AUTH_USERS::user_logout("/");
 
 }
 ?>
