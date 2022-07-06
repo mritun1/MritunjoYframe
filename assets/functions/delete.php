@@ -1,5 +1,5 @@
 <?php 
-APP_CRUD_CRUD::deleteFunctionsAdmin(function(){
+APP_CRUD_CRUD::deleteFunctions(function(){
 
     $for = $_POST["delete-confirm"];
     $id = $_POST["del-id"];

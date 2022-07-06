@@ -48,5 +48,19 @@ class APP_INTI_FUNC{
     //     echo $key . '<br/>';
     // }
 
+    public static function get_meta_web($query,$url){
+        $metas = get_meta_tags($url);
+        return $metas[$query];
+    }
+    //echo get_meta_web('description',"https://www.w3schools.com/");
+    //description, keywords, rating
+
+    public static function getTitle($url) {
+        $page = file_get_contents($url);
+        $title = preg_match('/<title[^>]*>(.*?)<\/title>/ims', $page, $match) ? $match[1] : null;
+        return $title;
+    }
+    // echo 'Title: ' . getTitle("https://www.w3schools.com/");
+
 }
 ?>

@@ -55,7 +55,7 @@ echo '<br/>';
 //     lname VARCHAR(255),
 //     email VARCHAR(255),
 //     password VARCHAR(255),
-//     token VARCHAR(255) NOT NULL
+//     token VARCHAR(255) NULL
 //     )";
 // if ($db->db()->query($sql) === TRUE) {
 //     echo "Table Users created successfully";
