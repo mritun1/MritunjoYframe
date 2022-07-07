@@ -1,41 +1,39 @@
     
   <?php 
   $id = CONFIG::getRouteRequest(2);
-  if($id != ''){
-    $getData = APP_CRUD_CRUD::fetchCont('https://rahulsharmaco.in/api/blogs/'.$id);
-  }
+  $where = "id='".$id."'";
   ?>
 
     <div class="well">
         <h3>
             <a href="/admin-blogs" ><span class="glyphicon glyphicon-circle-arrow-left"></span> </a>
-            Write your Article <?php echo $id; ?>
+            Write your Article 
         </h3>
     </div>
 
-<form id="createBlog" editid="<?php echo APP_CRUD_CRUD::content($getData,'id'); ?>" action="func/blogs" method="post" enctype="multipart/form-data" >
+<form id="createBlog" editid="<?php echo $id ?>" action="/func/blogs" method="post" enctype="multipart/form-data" >
 
 
     <div class="well">
         <div class="form-group">
             <label>Title</label>
-            <input type="text" class="form-control" name='title' value="<?php echo APP_CRUD_CRUD::content($getData,'title'); ?>" placeholder="Write Title">
+            <input type="text" class="form-control" name='title' value="<?php echo APP_CRUD_DB::getOne('title','blogs',$where); ?>" placeholder="Write Title">
         </div>
     </div>
    
     <div class="well">
       <div class="form-group">
       
-        <?php if(APP_CRUD_CRUD::content($getData,'image') != ''){ ?>
+        <!-- <?php// if(APP_CRUD_CRUD::content($getData,'image') != ''){ ?>
             <label>Files</label>
             <p>
                 <img src="/assets/icons/file.png" style="height:60px;width:auto;" >
-                File is uploaded <button type="button" id="delfile" contid="<?php echo APP_CRUD_CRUD::content($getData,'id'); ?>" class="btn btn-danger">Delete</button>
+                File is uploaded <button type="button" id="delfile" contid="<?php// echo APP_CRUD_CRUD::content($getData,'id'); ?>" class="btn btn-danger">Delete</button>
             </p>
-        <?php }else{ ?>
+        <?php// }else{ ?>
             <label for="image">Upload files (.zip)</label>
             <input type="file" class="form-control" name="image" id="image" >
-        <?php } ?>
+        <?php //} ?> -->
 
       </div>
     </div>
@@ -57,12 +55,12 @@
     <div class="well">
         <div class="form-group">
             <label >Description</label>
-            <textarea class="form-control" name="description" placeholder="Write Description" rows="3"><?php echo APP_CRUD_CRUD::content($getData,'description'); ?></textarea>
+            <textarea class="form-control" name="description" placeholder="Write Description" rows="3"><?php echo APP_CRUD_DB::getOne('description','blogs',$where); ?></textarea>
         </div>
     </div>
             
     <h4>Write your content here</h4>
-    <textarea id="summernote" name="editordata"><?php echo APP_CRUD_CRUD::content($getData,'content'); ?></textarea>
+    <textarea id="summernote" name="editordata"><?php echo APP_CRUD_DB::getOne('content','blogs',$where); ?></textarea>
 
     <div class="well text-center">
         <button id="submit" type="submit" class="btn btn-primary btn-success"> <span class="glyphicon glyphicon-plus"></span> Submit & publish Article</button> 
@@ -112,6 +110,7 @@ $(document).ready(function(){
       success: function (data)
       {
         let mgs = JSON.parse(JSON.stringify(data));
+        console.log(mgs);
         if(mgs.code == 1){
           $(location).prop('href', '/admin-blogs');
         }else{
