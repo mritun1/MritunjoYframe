@@ -23,29 +23,33 @@ class APP_CRUD_DB{
     //GET ALL DATA
     public static function getAll(string $data){
         $arr = array();
+        $return = false;
         $sql = self::conn()->query($data);
-        if($sql->num_rows > 0){
-            foreach($sql as $row){
-                $arr[] = $row;
-            }
-            return json_encode($arr);
-        }else{
-            return false;
-        }
-        
-    }
-
-    //GET ROW OF SINGLE DATA
-    public static function getOne(string $row, string $table, string $where){
-        $query = "SELECT $row FROM $table WHERE $where LIMIT 1";
-        $sql = self::conn()->query($query);
-        if($sql->num_rows >0){
-            while($rows = $sql->fetch_row()){
-                $return = $rows[0];
+        if($sql){
+            if($sql->num_rows > 0){
+                foreach($sql as $row){
+                    $arr[] = $row;
+                }
+                $return = json_encode($arr);
             }
         }
         return $return;
     }
+
+    //GET ROW OF SINGLE DATA
+    public static function getOne(string $row, string $table, string $where){
+        $return = false;
+         $query = "SELECT $row FROM $table WHERE $where LIMIT 1";
+         $sql = self::conn()->query($query);
+         if($sql){
+             if($sql->num_rows >0){
+                 while($rows = $sql->fetch_row()){
+                     $return = $rows[0];
+                 }
+             }
+         }
+         return $return;
+     }
 
     //SEARCHING DATABASE
     public static function searchData(string $list, string $table, string $query, string $query2 = null){

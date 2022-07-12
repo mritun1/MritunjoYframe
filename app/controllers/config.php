@@ -29,9 +29,13 @@ class CONFIG{
     //Example -> CONFIG::route('home','pagecontroller@function_name');
 
     public static function getRouteRequest($req){
-        $request = $_SERVER['REQUEST_URI'];
-        $exp_req = explode('/' , $request);
-        return $exp_req[$req];
+        $return = false;
+        if($req != null){
+            $request = $_SERVER['REQUEST_URI'];
+            $exp_req = explode('/' , $request);
+            $return = $exp_req[$req] ?? null;
+        }
+        return $return;
     }
 
     public static function route404($controller){
