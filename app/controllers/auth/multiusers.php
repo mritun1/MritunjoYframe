@@ -1,5 +1,5 @@
 <?php 
-class APP_AUTH_USERS{
+class APP_AUTH_MULTIUSERS{
 
     //FOR REGISTERING USER
     //SEND REQUEST
@@ -8,9 +8,10 @@ class APP_AUTH_USERS{
         $message['code'] = 0;
         if($_POST['password'] == $_POST['password1']){
 
+            $type = htmlentities($_POST['u_type']);
             $email = htmlentities($_POST['email']);
             $crud = new APP_CRUD_CRUD();
-            $query = "SELECT * FROM users WHERE email = '$email' LIMIT 1";
+            $query = "SELECT * FROM multi_users WHERE email = '$email' AND u_type='$type' LIMIT 1";
             if($crud->sql_query($query) == false){
                 //check if valid password, name, email, etc.
                 if(
@@ -31,12 +32,13 @@ class APP_AUTH_USERS{
                                 "fname" => htmlentities($_POST['first_name']),
                                 "lname" => htmlentities($_POST['last_name']),
                                 "email" =>  $email,
-                                "password" =>  $pass
+                                "password" =>  $pass,
+                                "u_type" => $type
                             );
                         }
                         
                         $db = new APP_CRUD_CRUD();
-                        APP_CRUD_CRUD::InsertUpdateData($arr,'users',$db->db(),"");
+                        APP_CRUD_CRUD::InsertUpdateData($arr,'multi_users',$db->db(),"");
 
                         $message['code'] = 1;
                         $message['status'] = 'Registered Success';
@@ -66,7 +68,8 @@ class APP_AUTH_USERS{
         // 4. Redirect
         $message['code'] = "0";
         $email = htmlentities($_POST['email']);
-        $data = "SELECT * FROM users WHERE email='$email' LIMIT 1";
+        $type = htmlentities($_POST['u_type']);
+        $data = "SELECT * FROM multi_users WHERE email='$email' AND u_type='$type' LIMIT 1";
         if(APP_CRUD_DB::checkData($data) == true){
             
             $getAll = json_decode(APP_CRUD_DB::getAll($data),true);
@@ -82,14 +85,14 @@ class APP_AUTH_USERS{
                     "token" => $temp_pass_hash,
                     "id" => $user_id
                 );
-                APP_CRUD_CRUD::InsertUpdateData($arr,'users',APP_CRUD_DB::conn(),"");
+                APP_CRUD_CRUD::InsertUpdateData($arr,'multi_users',APP_CRUD_DB::conn(),"");
     
                 $user = password_hash($email, PASSWORD_DEFAULT);
     
                 //SETTING THE COOKIES
-                APP_AUTH_SET::setcookie("user_id",$user_id,"30");
-                APP_AUTH_SET::setcookie("user",$user,"30");
-                APP_AUTH_SET::setcookie("pass",$temp_pass,"30");
+                APP_AUTH_SET::setcookie("multi_user_id",$user_id,"30");
+                APP_AUTH_SET::setcookie("multi_user",$user,"30");
+                APP_AUTH_SET::setcookie("multi_pass",$temp_pass,"30");
                 
                 $message['code'] = 1;
                 $message['status'] = "Login success";
@@ -109,16 +112,16 @@ class APP_AUTH_USERS{
         // 3. Print out status
         $return = false;
         if(
-            isset($_COOKIE["user_id"]) && $_COOKIE["user_id"]!="" &&
-            isset($_COOKIE["user"]) && $_COOKIE["user"]!="" && 
-            isset($_COOKIE["pass"]) && $_COOKIE["pass"]!=""
+            isset($_COOKIE["multi_user_id"]) && $_COOKIE["multi_user_id"]!="" &&
+            isset($_COOKIE["multi_user"]) && $_COOKIE["multi_user"]!="" && 
+            isset($_COOKIE["multi_pass"]) && $_COOKIE["multi_pass"]!=""
         ){
-            $uid = htmlentities($_COOKIE["user_id"]);
-            $user = htmlentities($_COOKIE["user"]);
-            $pass = htmlentities($_COOKIE["pass"]);
+            $uid = htmlentities($_COOKIE["multi_user_id"]);
+            $user = htmlentities($_COOKIE["multi_user"]);
+            $pass = htmlentities($_COOKIE["multi_pass"]);
             $where = "id='".$uid."'";
-            $email = APP_CRUD_DB::getOne('email','users',$where);
-            $password = APP_CRUD_DB::getOne('token','users',$where);
+            $email = APP_CRUD_DB::getOne('email','multi_users',$where);
+            $password = APP_CRUD_DB::getOne('token','multi_users',$where);
             $verify_email = password_verify($email,$user);
             $verify_pass = password_verify($pass,$password);
             //if($verify_email == true && $verify_pass == true){
@@ -132,61 +135,33 @@ class APP_AUTH_USERS{
     }
 
     public static function log_redirect($url){
-        if(APP_AUTH_USERS::user_log_status() == true){
+        if(self::user_log_status() == true){
             header("Location:$url");
         }
     }
 
     public static function log_redirect_off($url){
-        if(APP_AUTH_USERS::user_log_status() == false){
+        if(self::user_log_status() == false){
             header("Location:$url");
         }
     }
 
     public static function user_logout($url){
-        unset($_COOKIE['user_id']);
-        setcookie('user_id', '', time() - 3600, '/'); // empty value and old timestamp
-        unset($_COOKIE['user']);
-        setcookie('user', '', time() - 3600, '/'); // empty value and old timestamp
-        unset($_COOKIE['pass']);
-        setcookie('pass', '', time() - 3600, '/'); // empty value and old timestamp
+        unset($_COOKIE['multi_user_id']);
+        setcookie('multi_user_id', '', time() - 3600, '/'); // empty value and old timestamp
+        unset($_COOKIE['multi_user']);
+        setcookie('multi_user', '', time() - 3600, '/'); // empty value and old timestamp
+        unset($_COOKIE['multi_pass']);
+        setcookie('multi_pass', '', time() - 3600, '/'); // empty value and old timestamp
         header("Location:$url");
     }
 
     public static function logData(string $column){
-        $where = "id='".$_COOKIE['user_id']."'";
-        $data = APP_CRUD_DB::getOne($column,'users',$where);
+        $where = "id='".$_COOKIE['multi_user_id']."'";
+        $data = APP_CRUD_DB::getOne($column,'multi_users',$where);
         return $data;
     }
     //APP_AUTH_USERS::logData('fname');
-
-    public static function forgotPassEmail($sendtoemail,$sendermail,$subject,$message){
-        //CHANGE THE PASSWORD
-        $temp_pass = rand(1000000000,9999999999) . "dD#";
-        $pass_go = $temp_pass;
-        // $temp_pass = "1234567890mM#";
-        $temp_pass_hash = password_hash($temp_pass, PASSWORD_DEFAULT);
-    
-        $where = "email='".$sendtoemail."'";
-        $user_id = APP_CRUD_DB::getOne('id','users',$where);
-    
-        //UPDATE TO DATABASE
-        $arr = array(
-            "password" => $temp_pass_hash,
-            "id" => $user_id
-        );
-        APP_CRUD_CRUD::InsertUpdateData($arr,'users',APP_CRUD_DB::conn(),"");
-    
-        //SENDING EMAIL
-        $arr = array(
-            "sendermail" => $sendermail,
-            "sendtosubject" => $subject,
-            "sendtoemail" => $sendtoemail,
-            "sendtocontent" => $message . $pass_go,
-        );
-        
-        return APP_INTI_EMAIL::send_email($arr);
-    }
 
 }
 ?>
