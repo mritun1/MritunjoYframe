@@ -188,5 +188,20 @@ class APP_AUTH_USERS{
         return APP_INTI_EMAIL::send_email($arr);
     }
 
+    public static function changePass($password){
+        //CHANGE THE PASSWORD
+        $temp_pass_hash = password_hash($password, PASSWORD_DEFAULT);
+        $id = self::logData('id');
+    
+        //UPDATE TO DATABASE
+        $arr = array(
+            "password" => $temp_pass_hash,
+            "id" => $id
+        );
+        APP_CRUD_CRUD::InsertUpdateData($arr,'users',APP_CRUD_DB::conn(),"");
+    
+        return true;
+    }
+
 }
 ?>
