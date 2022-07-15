@@ -1,0 +1,558 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap");
+div {
+  padding: 6px;
+}
+
+body {
+  margin: 0;
+}
+
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .m-container-xxs,
+  .m-container-xs,
+  .m-container-md {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .m-container-xxs {
+    width: 60%;
+  }
+  .m-container-xs {
+    width: 85%;
+  }
+  .m-container-md {
+    width: 95%;
+  }
+  .m-container-lg {
+    width: 95%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .m-container-xxs {
+    width: 50%;
+  }
+  .m-container-xs {
+    width: 75%;
+  }
+  .m-container-md {
+    width: 95%;
+  }
+  .m-container-lg {
+    width: 95%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .m-container-xxs {
+    width: 40%;
+  }
+  .m-container-xs {
+    width: 65%;
+  }
+  .m-container-md {
+    width: 85%;
+  }
+  .m-container-lg {
+    width: 95%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .m-container-xxs {
+    width: 30%;
+  }
+  .m-container-xs {
+    width: 50%;
+  }
+  .m-container-md {
+    width: 70%;
+  }
+  .m-container-lg {
+    width: 90%;
+  }
+}
+
+.m-container-xlg {
+  width: 100%;
+}
+
+.m-container {
+  margin: auto;
+}
+
+.m-content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.m-content.full-height {
+  height: 100vh;
+}
+
+.m-content.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.m-content.justify-center {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.m-content.column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.m-content.row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.row-3 {
+  -webkit-box-flex: 30%;
+      -ms-flex: 30%;
+          flex: 30%;
+}
+
+.m-input input,
+.m-input textarea {
+  width: 94%;
+  padding: 6px;
+  border: none;
+  outline: none;
+  margin: 6px 0px;
+}
+
+.m-btn {
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.btn-success {
+  background-color: #2c6b2c;
+  color: #e2d6d6;
+}
+
+.btn-success:hover {
+  background-color: #429242;
+}
+
+.btn-danger {
+  background-color: #a31616;
+  color: #e2d6d6;
+}
+
+.btn-danger:hover {
+  background-color: #bd5656;
+}
+
+.btn-warning {
+  background-color: #996c18;
+  color: #e2d6d6;
+}
+
+.btn-warning:hover {
+  background-color: #cf962a;
+}
+
+.btn-info {
+  background-color: #185099;
+  color: #e2d6d6;
+}
+
+.btn-info:hover {
+  background-color: #2a77cf;
+}
+
+.btn-block {
+  width: 100% !important;
+}
+
+.xxs {
+  font-size: 10px;
+}
+
+.xs {
+  font-size: 13px;
+}
+
+.sm {
+  font-size: 16px;
+}
+
+.md {
+  font-size: 19px;
+}
+
+.lg {
+  font-size: 23px;
+}
+
+.xlg {
+  font-size: 29px;
+}
+
+.xxlg {
+  font-size: 32px;
+}
+
+.radius-xxs {
+  border-radius: 6px;
+}
+
+.radius-round {
+  border-radius: 50%;
+}
+
+.bg-light-success {
+  background-color: #dbe7db;
+}
+
+.bg-light-white {
+  background-color: #e3e3ee;
+}
+
+.bg-light-danger {
+  background-color: #e4cfcf;
+}
+
+.bg-success {
+  background-color: #2c6b2c;
+}
+
+.bg-danger {
+  background-color: #a31616;
+}
+
+.box-shadow-xxs {
+  -webkit-box-shadow: 0px 0px 6px 0px #4d5547;
+          box-shadow: 0px 0px 6px 0px #4d5547;
+}
+
+.center {
+  text-align: center;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.m-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.mar-auto {
+  margin: auto;
+}
+
+.white {
+  color: #e2d6d6;
+}
+
+.danger {
+  color: #a31616;
+}
+
+.success {
+  color: #2c6b2c;
+}
+
+.warning {
+  color: #996c18;
+}
+
+.info {
+  color: #185099;
+}
+
+.m-drop-down {
+  position: relative;
+}
+
+.m-drop-down .m-drop {
+  position: absolute;
+}
+
+.m-drop-down .m-drop-left {
+  left: 0;
+}
+
+.m-drop-down .m-drop-right {
+  right: 0;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.m-list {
+  list-style: none;
+  padding-left: 0px;
+  padding: 8px;
+  margin: 0px;
+}
+
+.menu-success {
+  background-color: #2c6b2c;
+  border: 1px solid #105710;
+  border-radius: 6px;
+}
+
+.menu-success .m-list .m-li {
+  text-align: left;
+  padding: 6px;
+}
+
+.menu-success .m-list .m-li:hover {
+  background-color: #1e8b1e;
+  border-radius: 6px;
+}
+
+.menu-success .m-list .m-li .m-a {
+  color: #e2d6d6;
+  text-decoration: none;
+}
+
+.menu-success .m-list .m-li .m-a.red {
+  color: #a31616;
+  font-weight: bold;
+}
+
+.menu-danger {
+  background-color: #a31616;
+  border: 1px solid #571019;
+  border-radius: 6px;
+}
+
+.menu-danger .m-list .m-li {
+  text-align: left;
+  padding: 6px;
+}
+
+.menu-danger .m-list .m-li:hover {
+  background-color: #8b1e39;
+  border-radius: 6px;
+}
+
+.menu-danger .m-list .m-li .m-a {
+  color: #e2d6d6;
+  text-decoration: none;
+}
+
+.menu-danger .m-list .m-li .m-a.red {
+  color: #e2d6d6;
+  font-weight: bold;
+}
+
+.m-h-list {
+  list-style-type: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0px;
+}
+
+.menu-h-success {
+  background-color: #2c6b2c;
+  padding: 0px;
+}
+
+.menu-h-success .m-h-list .m-li {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.menu-h-success .m-h-list .m-li .m-a {
+  text-decoration: none;
+  color: #e2d6d6;
+}
+
+.menu-h-success .m-h-list .m-li:hover {
+  background-color: #429242;
+}
+
+.menu-h-danger {
+  background-color: #a31616;
+  padding: 0px;
+}
+
+.menu-h-danger .m-h-list .m-li {
+  padding: 6px 8px;
+  cursor: pointer;
+}
+
+.menu-h-danger .m-h-list .m-li .m-a {
+  text-decoration: none;
+  color: #e2d6d6;
+}
+
+.menu-h-danger .m-h-list .m-li:hover {
+  background-color: #bd5656;
+}
+
+.m-content-list-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  background-color: #cdcdd6;
+  color: #4d4d85;
+  margin: 5px 0px;
+}
+
+.m-content-list-text .thumb {
+  background-color: #b6b6ca;
+  border-radius: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.title {
+  padding-left: 6px;
+  border-bottom: 1px solid #c9c9d4;
+}
+
+.modal {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .modal .modal-xs {
+    width: 98%;
+  }
+}
+
+@media only screen and (min-width: 600px) {
+  .modal .modal-xs {
+    width: 80%;
+  }
+}
+
+@media only screen and (min-width: 900px) {
+  .modal .modal-xs {
+    width: 60%;
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .modal .modal-xs {
+    width: 40%;
+  }
+}
+
+.modal .modal-section {
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 100vh;
+}
+
+.modal .modal-section div {
+  background-color: #e2d6d6;
+}
+
+.modal .modal-section div .modal-head .modal-close,
+.modal .modal-section div .modal-head .edit-modal-close {
+  float: right;
+  background-color: #7c6363;
+  border-radius: 40%;
+  color: #e2d6d6;
+}
+
+.modal .modal-section div .modal-head .modal-close:hover,
+.modal .modal-section div .modal-head .edit-modal-close:hover {
+  background-color: #cc8686;
+  color: red;
+}
+
+.table table,
+.table th,
+.table td {
+  padding: 5px;
+}
+
+.table table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table.table-border-danger table,
+.table.table-border-danger th,
+.table.table-border-danger td {
+  border: 1px solid #a31616;
+}
+/*# sourceMappingURL=mcss.css.map */

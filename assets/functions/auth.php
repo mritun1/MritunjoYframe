@@ -19,6 +19,7 @@ if(isset($_POST['registration']) && $_POST['registration'] == 'access'){
 if(isset($_POST['login']) && $_POST['login'] == 'access'){
     //SEND POST REQUEST -> email, password
     echo APP_AUTH_USERS::login_users();
+    
 
 }
 

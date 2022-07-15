@@ -15,39 +15,7 @@ if($db->db() == true){
 echo '<br/>';
 //////create cars table if not exists
 
-// $sql = "CREATE TABLE IF NOT EXISTS employees (
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     first_name VARCHAR(255) NULL,
-//     mid_name VARCHAR(255) NULL,
-//     last_name VARCHAR(255) NULL,
-//     email VARCHAR(255) NULL,
-//     country VARCHAR(255) NULL,
-//     loc_manager VARCHAR(255) NULL,
-//     func_manager VARCHAR(255) NULL,
-//     join_date VARCHAR(255) NULL,
-//     expiry_date VARCHAR(255) NULL,
-//     user_id VARCHAR(255) NULL
-//     )";
-// if ($db->db()->query($sql) === TRUE) {
-//     echo "Table employees created successfully";
-// } else {
-//     echo "Error creating table: " . $db->db()->error;
-// }
-// echo '<br/>';
 
-// $sql = "CREATE TABLE IF NOT EXISTS teams (
-//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-//     team_name VARCHAR(255) NULL,
-//     des TEXT NULL,
-//     team TEXT NULL,
-//     user_id VARCHAR(255) NULL
-//     )";
-// if ($db->db()->query($sql) === TRUE) {
-//     echo "Table Team created successfully";
-// } else {
-//     echo "Error creating table: " . $db->db()->error;
-// }
-// echo '<br/>';
 
 // $sql = "CREATE TABLE IF NOT EXISTS users (
 //     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
@@ -63,5 +31,34 @@ echo '<br/>';
 //     echo "Error creating table: " . $db->db()->error;
 // }
 
+
+// $sql = "CREATE TABLE IF NOT EXISTS budget (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     user_id VARCHAR(255),
+//     budget_name VARCHAR(255),
+//     budget_amount VARCHAR(255),
+//     budget_start VARCHAR(255),
+//     budget_end VARCHAR(255),
+//     budget_des VARCHAR(255),
+//     budget_status VARCHAR(255)
+//     )";
+// if ($db->db()->query($sql) === TRUE) {
+//     echo "Table Budget created successfully";
+// } else {
+//     echo "Error creating table: " . $db->db()->error;
+// }
+
+// $sql = "CREATE TABLE IF NOT EXISTS budget_items (
+//     id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+//     user_id VARCHAR(255),
+//     budget_id VARCHAR(255),
+//     item_name VARCHAR(255),
+//     item_amount VARCHAR(255)
+//     )";
+// if ($db->db()->query($sql) === TRUE) {
+//     echo "Table Budget Items created successfully";
+// } else {
+//     echo "Error creating table: " . $db->db()->error;
+// }
 
 ?>

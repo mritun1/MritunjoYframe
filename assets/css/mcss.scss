@@ -1,0 +1,510 @@
+div {
+  //border: 1px solid red;
+  padding: 6px;
+}
+
+// ...................................
+// START THE code
+// ...................................
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;500;600&display=swap");
+body {
+  margin: 0;
+}
+html {
+  height: 100%;
+  font-family: "Poppins", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0px;
+}
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+$green: rgb(44, 107, 44);
+$white: rgb(226, 214, 214);
+$light-green: rgb(66, 146, 66);
+$red: rgb(163, 22, 22);
+$light-red: rgb(189, 86, 86);
+$yellow: rgb(153, 108, 24);
+$blue: rgb(24, 80, 153);
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .m-container-xxs,
+  .m-container-xs,
+  .m-container-md {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .m-container-xxs {
+    width: 60%;
+  }
+  .m-container-xs {
+    width: 85%;
+  }
+  .m-container-md {
+    width: 95%;
+  }
+  .m-container-lg {
+    width: 95%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+  .m-container-xxs {
+    width: 50%;
+  }
+  .m-container-xs {
+    width: 75%;
+  }
+  .m-container-md {
+    width: 95%;
+  }
+  .m-container-lg {
+    width: 95%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+  .m-container-xxs {
+    width: 40%;
+  }
+  .m-container-xs {
+    width: 65%;
+  }
+  .m-container-md {
+    width: 85%;
+  }
+  .m-container-lg {
+    width: 95%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+  .m-container-xxs {
+    width: 30%;
+  }
+  .m-container-xs {
+    width: 50%;
+  }
+  .m-container-md {
+    width: 70%;
+  }
+  .m-container-lg {
+    width: 90%;
+  }
+}
+.m-container-xlg {
+  width: 100%;
+}
+.m-container {
+  margin: auto;
+}
+// .................................
+// CONTENT
+// .................................
+.m-content {
+  display: flex;
+}
+.m-content.full-height {
+  height: 100vh;
+}
+.m-content.align-center {
+  align-items: center;
+}
+.m-content.justify-center {
+  justify-content: center;
+}
+.m-content.column {
+  flex-direction: column;
+}
+.m-content.row {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.row-3 {
+  flex: 30%;
+}
+.m-input input,
+.m-input textarea {
+  width: 94%;
+  padding: 6px;
+  border: none;
+  outline: none;
+  margin: 6px 0px;
+}
+.m-btn {
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+// .................................
+// BUTTON COLOR
+// .................................
+.btn-success {
+  background-color: $green;
+  color: $white;
+  &:hover {
+    background-color: $light-green;
+  }
+}
+
+.btn-danger {
+  background-color: $red;
+  color: $white;
+  &:hover {
+    background-color: $light-red;
+  }
+}
+.btn-warning {
+  background-color: $yellow;
+  color: $white;
+  &:hover {
+    background-color: rgb(207, 150, 42);
+  }
+}
+
+.btn-info {
+  background-color: $blue;
+  color: $white;
+  &:hover {
+    background-color: rgb(42, 119, 207);
+  }
+}
+// .................................
+// BUTTON TYPE
+// .................................
+.btn-block {
+  width: 100% !important;
+}
+// .................................
+// FONT SIZE
+// .................................
+.xxs {
+  font-size: 10px;
+}
+.xs {
+  font-size: 13px;
+}
+.sm {
+  font-size: 16px;
+}
+.md {
+  font-size: 19px;
+}
+.lg {
+  font-size: 23px;
+}
+.xlg {
+  font-size: 29px;
+}
+.xxlg {
+  font-size: 32px;
+}
+// .................................
+// BORDER RADIUS
+// .................................
+.radius-xxs {
+  border-radius: 6px;
+}
+.radius-round {
+  border-radius: 50%;
+}
+// .................................
+// BACKGROUND COLOR
+// .................................
+.bg-light-success {
+  background-color: rgb(219, 231, 219);
+}
+.bg-light-white {
+  background-color: rgb(227, 227, 238);
+}
+.bg-light-danger {
+  background-color: rgb(228, 207, 207);
+}
+
+.bg-success {
+  background-color: $green;
+}
+.bg-danger {
+  background-color: $red;
+}
+// .................................
+// BOX SHADOW
+// .................................
+.box-shadow-xxs {
+  box-shadow: 0px 0px 6px 0px rgb(77, 85, 71);
+}
+// .................................
+// TEXT ALIGN
+// .................................
+.center {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+.right {
+  text-align: right;
+}
+// .................................
+// IMAGES
+// .................................
+.m-img {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+// .................................
+// MARGIN
+// .................................
+.mar-auto {
+  margin: auto;
+}
+// .................................
+// COLOR
+// .................................
+.white {
+  color: $white;
+}
+.danger {
+  color: $red;
+}
+.success {
+  color: $green;
+}
+.warning {
+  color: $yellow;
+}
+.info {
+  color: $blue;
+}
+// .................................
+// DROP DOWN MENU
+// .................................
+.m-drop-down {
+  position: relative;
+  .m-drop {
+    position: absolute;
+  }
+  .m-drop-left {
+    left: 0;
+  }
+  .m-drop-right {
+    right: 0;
+  }
+}
+// .................................
+// DISPLAY
+// .................................
+.display-none {
+  display: none;
+}
+.display-block {
+  display: block;
+}
+// .................................
+// LISTS
+// .................................
+.m-list {
+  list-style: none;
+  padding-left: 0px;
+  padding: 8px;
+  margin: 0px;
+}
+.menu-success {
+  background-color: $green;
+  border: 1px solid rgb(16, 87, 16);
+  border-radius: 6px;
+  .m-list {
+    .m-li {
+      text-align: left;
+      padding: 6px;
+      &:hover {
+        background-color: rgb(30, 139, 30);
+        border-radius: 6px;
+      }
+      .m-a {
+        color: $white;
+        text-decoration: none;
+      }
+      .m-a.red {
+        color: $red;
+        font-weight: bold;
+      }
+    }
+  }
+}
+.menu-danger {
+  background-color: $red;
+  border: 1px solid rgb(87, 16, 25);
+  border-radius: 6px;
+  .m-list {
+    .m-li {
+      text-align: left;
+      padding: 6px;
+      &:hover {
+        background-color: rgb(139, 30, 57);
+        border-radius: 6px;
+      }
+      .m-a {
+        color: $white;
+        text-decoration: none;
+      }
+      .m-a.red {
+        color: $white;
+        font-weight: bold;
+      }
+    }
+  }
+}
+// .................................
+// MENU HORIZONTAL
+// .................................
+.m-h-list {
+  list-style-type: none;
+  display: flex;
+  padding: 0px;
+}
+.menu-h-success {
+  background-color: $green;
+  padding: 0px;
+  .m-h-list {
+    .m-li {
+      padding: 6px 8px;
+      cursor: pointer;
+      .m-a {
+        text-decoration: none;
+        color: $white;
+      }
+      &:hover {
+        background-color: $light-green;
+      }
+    }
+  }
+}
+.menu-h-danger {
+  background-color: $red;
+  padding: 0px;
+  .m-h-list {
+    .m-li {
+      padding: 6px 8px;
+      cursor: pointer;
+      .m-a {
+        text-decoration: none;
+        color: $white;
+      }
+      &:hover {
+        background-color: $light-red;
+      }
+    }
+  }
+}
+// .................................
+// CONTENT LIST
+// .................................
+.m-content-list-text {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(205, 205, 214);
+  color: rgb(77, 77, 133);
+  margin: 5px 0px;
+  .thumb {
+    background-color: rgb(182, 182, 202);
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .text {
+  }
+}
+.title {
+  padding-left: 6px;
+  border-bottom: 1px solid rgb(201, 201, 212);
+}
+// .................................
+// MODAL
+// .................................
+.modal {
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: none;
+  .modal-xs {
+    //width: 40%;
+    @media only screen and (max-width: 600px) {
+      width: 98%;
+    }
+    @media only screen and (min-width: 600px) {
+      width: 80%;
+    }
+    @media only screen and (min-width: 900px) {
+      width: 60%;
+    }
+    @media only screen and (min-width: 1200px) {
+      width: 40%;
+    }
+  }
+  .modal-section {
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    div {
+      background-color: $white;
+      .modal-head {
+        .modal-close,
+        .edit-modal-close {
+          float: right;
+          background-color: rgb(124, 99, 99);
+          border-radius: 40%;
+          color: $white;
+          &:hover {
+            background-color: rgb(204, 134, 134);
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}
+// .................................
+// TABLES
+// .................................
+.table {
+  table,
+  th,
+  td {
+    padding: 5px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+}
+.table.table-border-danger {
+  table,
+  th,
+  td {
+    border: 1px solid $red;
+  }
+}
