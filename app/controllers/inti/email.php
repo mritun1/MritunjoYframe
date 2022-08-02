@@ -30,6 +30,11 @@ class APP_INTI_EMAIL{
             $mail->addReplyTo($array['sendermail']);
             //$mail->addCC('cc@example.com');
             //$mail->addBCC('bcc@example.com');
+            
+            $email_exp = explode(",",$array['email_cc']);
+            foreach($email_exp as $key){
+                $mail->addCC($key);
+            }
 
             //Attachments
             //$mail->addAttachment('/var/tmp/file.tar.gz');         //Add attachments
